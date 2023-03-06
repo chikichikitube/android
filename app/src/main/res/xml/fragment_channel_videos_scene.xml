@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <ConstraintSet android:id="@+id/videoPlayerStart">
+        <Constraint
+            android:id="@+id/no_channel_videos_found_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/mochiypoppone"
+            android:textColor="@color/orange"
+            android:textSize="16sp"
+            android:visibility="gone"
+            motion:visibilityMode="ignore"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="@+id/channel_videos_recycler_view"
+            />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/descriptionEnd">
+
+        <Constraint
+            android:id="@+id/no_channel_videos_found_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/mochiypoppone"
+            android:textColor="@color/orange"
+            android:textSize="16sp"
+            android:visibility="gone"
+            motion:visibilityMode="ignore"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="@+id/channel_videos_recycler_view"
+            />
+
+        <Constraint
+            android:id="@+id/constraintLayout2"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintStart_toStartOf="parent" />
+    </ConstraintSet>
+    <Transition
+        motion:constraintSetStart="@+id/videoPlayerStart"
+        motion:constraintSetEnd="@+id/descriptionEnd"
+        motion:autoTransition="none" >
+        <KeyFrameSet >
+            <KeyAttribute />
+            <KeyAttribute
+                motion:motionTarget="@+id/constraintLayout2"
+                motion:framePosition="100"
+                android:alpha="0.0" />
+            <KeyAttribute
+                motion:motionTarget="@+id/constraintLayout2"
+                motion:framePosition="100"
+                android:translationY="-5dp" />
+        </KeyFrameSet>
+        <OnSwipe motion:touchAnchorId="@+id/channel_videos_recycler_view" />
+    </Transition>
+</MotionScene>
